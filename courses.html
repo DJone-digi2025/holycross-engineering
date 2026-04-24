@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Courses & Departments | Holycross Engineering College</title>
+  <meta name="description" content="Explore engineering programs at Holycross Engineering College: CSE, ECE, Mechanical, Civil, EEE, and IT. NBA accredited, industry-aligned curriculum." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .dept-detail {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+      padding: 56px 0;
+      border-bottom: 1px solid var(--gray-100);
+    }
+    .dept-detail:last-child { border-bottom: none; }
+    .dept-detail:nth-child(even) .dept-text { order: -1; }
+    .dept-visual {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 16/10;
+      position: relative;
+    }
+    .dept-visual img { width:100%;height:100%;object-fit:cover; }
+    .dept-accent {
+      position: absolute;
+      bottom: 20px; left: 20px;
+      background: rgba(4,13,31,0.85);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      color: var(--white);
+      padding: 10px 18px;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+    .outcomes-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .outcomes-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 0.9rem; color: var(--gray-700); line-height: 1.6;
+    }
+    .outcomes-list li::before {
+      content: '✓';
+      color: var(--gold-600);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .dept-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 4px 12px;
+      border-radius: 50px; margin-right: 8px; margin-bottom: 8px;
+    }
+    @media (max-width:768px) {
+      .dept-detail { grid-template-columns: 1fr; gap: 28px; }
+      .dept-detail:nth-child(even) .dept-text { order: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="container"><div class="nav-inner">
+      <a href="index.html" class="nav-logo"><div class="nav-logo-icon">H</div><div class="nav-logo-text"><span class="nav-logo-name">Holycross</span><span class="nav-logo-sub">Engineering College</span></div></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="courses.html" class="active">Courses</a></li><li><a href="admissions.html">Admissions</a></li><li><a href="placements.html">Placements</a></li><li><a href="campus.html">Campus Life</a></li><li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta"><a href="admissions.html" class="btn btn-primary btn-sm">Apply Now</a></div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div></div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a><a href="about.html">About Us</a><a href="courses.html">Courses</a><a href="admissions.html">Admissions</a><a href="placements.html">Placements</a><a href="campus.html">Campus Life</a><a href="contact.html">Contact</a>
+    <a href="admissions.html" style="color:var(--gold-400);font-weight:700;margin-top:8px">→ Apply Now</a>
+  </div>
+
+  <!-- BANNER -->
+  <section class="page-banner">
+    <div class="container page-banner-content">
+      <nav class="breadcrumb"><a href="index.html">Home</a><span>/</span><span style="color:var(--gold-400)">Courses</span></nav>
+      <h1 class="t-h1 c-white">Departments & Programs</h1>
+      <p class="t-lead" style="color:rgba(255,255,255,0.65);margin-top:12px;max-width:580px">Six rigorous disciplines built around what the industry actually needs — not what was relevant 10 years ago.</p>
+    </div>
+  </section>
+
+  <!-- DEPT NAV -->
+  <section style="background:var(--white);border-bottom:1px solid var(--gray-100);padding:0;position:sticky;top:var(--nav-h);z-index:100">
+    <div class="container">
+      <div style="display:flex;gap:4px;overflow-x:auto;padding:12px 0;scrollbar-width:none">
+        <a href="#cse"  style="white-space:nowrap;padding:8px 18px;border-radius:50px;font-size:0.85rem;font-weight:600;color:var(--gray-700);transition:var(--transition);flex-shrink:0" onmouseover="this.style.background='var(--blue-900)';this.style.color='white'" onmouseout="this.style.background='';this.style.color='var(--gray-700)'">💻 CSE</a>
+        <a href="#ece"  style="white-space:nowrap;padding:8px 18px;border-radius:50px;font-size:0.85rem;font-weight:600;color:var(--gray-700);transition:var(--transition);flex-shrink:0" onmouseover="this.style.background='var(--blue-900)';this.style.color='white'" onmouseout="this.style.background='';this.style.color='var(--gray-700)'">📡 ECE</a>
+        <a href="#mech" style="white-space:nowrap;padding:8px 18px;border-radius:50px;font-size:0.85rem;font-weight:600;color:var(--gray-700);transition:var(--transition);flex-shrink:0" onmouseover="this.style.background='var(--blue-900)';this.style.color='white'" onmouseout="this.style.background='';this.style.color='var(--gray-700)'">⚙️ Mechanical</a>
+        <a href="#civil" style="white-space:nowrap;padding:8px 18px;border-radius:50px;font-size:0.85rem;font-weight:600;color:var(--gray-700);transition:var(--transition);flex-shrink:0" onmouseover="this.style.background='var(--blue-900)';this.style.color='white'" onmouseout="this.style.background='';this.style.color='var(--gray-700)'">🏗️ Civil</a>
+        <a href="#eee"  style="white-space:nowrap;padding:8px 18px;border-radius:50px;font-size:0.85rem;font-weight:600;color:var(--gray-700);transition:var(--transition);flex-shrink:0" onmouseover="this.style.background='var(--blue-900)';this.style.color='white'" onmouseout="this.style.background='';this.style.color='var(--gray-700)'">⚡ EEE</a>
+        <a href="#it"   style="white-space:nowrap;padding:8px 18px;border-radius:50px;font-size:0.85rem;font-weight:600;color:var(--gray-700);transition:var(--transition);flex-shrink:0" onmouseover="this.style.background='var(--blue-900)';this.style.color='white'" onmouseout="this.style.background='';this.style.color='var(--gray-700)'">🌐 IT</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPARTMENTS -->
+  <section class="section">
+    <div class="container">
+
+      <!-- CSE -->
+      <div class="dept-detail reveal" id="cse">
+        <div class="dept-visual">
+          <img src="assets/students_lab.png" alt="Computer Science lab" loading="lazy" />
+          <div class="dept-accent">💻 120 Seats · NBA Accredited</div>
+        </div>
+        <div class="dept-text">
+          <div class="section-label">B.E. — 4 Years</div>
+          <h2 class="t-h2 section-title">Computer Science &amp; Engineering</h2>
+          <p style="color:var(--gray-500);line-height:1.8;margin-bottom:24px">
+            Our CSE program is built around the technologies companies hire for today — AI, machine learning, cloud-native development, cybersecurity, and data engineering. Curriculum co-designed with Zoho, IBM, and Google Developer Experts.
+          </p>
+          <div style="margin-bottom:20px">
+            <span class="dept-badge" style="background:#dbeafe;color:#1d4ed8">Artificial Intelligence</span>
+            <span class="dept-badge" style="background:#dbeafe;color:#1d4ed8">Cloud Computing</span>
+            <span class="dept-badge" style="background:#dbeafe;color:#1d4ed8">Cybersecurity</span>
+            <span class="dept-badge" style="background:#dbeafe;color:#1d4ed8">Full-Stack Dev</span>
+            <span class="dept-badge" style="background:#dbeafe;color:#1d4ed8">Data Science</span>
+          </div>
+          <ul class="outcomes-list mb-24">
+            <li>IBM AI Engineering certification included in curriculum</li>
+            <li>Live product sprints with industry mentors every semester</li>
+            <li>Dedicated hackathon lab — 24×7 access</li>
+            <li>Average package: ₹9.2 LPA | Highest: ₹28 LPA</li>
+          </ul>
+          <a href="admissions.html" class="btn btn-blue">Apply for CSE →</a>
+        </div>
+      </div>
+
+      <!-- ECE -->
+      <div class="dept-detail reveal" id="ece">
+        <div class="dept-text">
+          <div class="section-label">B.E. — 4 Years</div>
+          <h2 class="t-h2 section-title">Electronics &amp; Communication Engineering</h2>
+          <p style="color:var(--gray-500);line-height:1.8;margin-bottom:24px">
+            From chip design to 5G infrastructure, our ECE program trains students at both the hardware and systems level. Equipped with a VLSI design studio, IoT lab, and antenna measurement facility.
+          </p>
+          <div style="margin-bottom:20px">
+            <span class="dept-badge" style="background:#ede9fe;color:#6d28d9">VLSI Design</span>
+            <span class="dept-badge" style="background:#ede9fe;color:#6d28d9">Embedded Systems</span>
+            <span class="dept-badge" style="background:#ede9fe;color:#6d28d9">IoT</span>
+            <span class="dept-badge" style="background:#ede9fe;color:#6d28d9">5G & RF</span>
+            <span class="dept-badge" style="background:#ede9fe;color:#6d28d9">Signal Processing</span>
+          </div>
+          <ul class="outcomes-list mb-24">
+            <li>Collaboration with Bosch Automotive Electronics for final-year projects</li>
+            <li>Cadence & Mentor Graphics VLSI tools — industry standard</li>
+            <li>ISRO & DRDO project sponsorships for meritorious students</li>
+            <li>Average package: ₹7.8 LPA | Highest: ₹22 LPA</li>
+          </ul>
+          <a href="admissions.html" class="btn btn-blue">Apply for ECE →</a>
+        </div>
+        <div class="dept-visual">
+          <img src="assets/campus_hero.png" alt="Electronics laboratory" loading="lazy" />
+          <div class="dept-accent">📡 60 Seats · NBA Accredited</div>
+        </div>
+      </div>
+
+      <!-- MECH -->
+      <div class="dept-detail reveal" id="mech">
+        <div class="dept-visual">
+          <img src="assets/campus_life.png" alt="Mechanical engineering workshop" loading="lazy" />
+          <div class="dept-accent">⚙️ 60 Seats · Anna University</div>
+        </div>
+        <div class="dept-text">
+          <div class="section-label">B.E. — 4 Years</div>
+          <h2 class="t-h2 section-title">Mechanical Engineering</h2>
+          <p style="color:var(--gray-500);line-height:1.8;margin-bottom:24px">
+            The fundamentals of force, energy, and motion — explored through modern simulation, additive manufacturing, and robotics. Our industry workshop runs 5 days a week with real production machines.
+          </p>
+          <div style="margin-bottom:20px">
+            <span class="dept-badge" style="background:#fff7ed;color:#c2410c">Thermodynamics</span>
+            <span class="dept-badge" style="background:#fff7ed;color:#c2410c">CAD/CAM</span>
+            <span class="dept-badge" style="background:#fff7ed;color:#c2410c">Robotics</span>
+            <span class="dept-badge" style="background:#fff7ed;color:#c2410c">3D Printing / AM</span>
+            <span class="dept-badge" style="background:#fff7ed;color:#c2410c">FEA / CFD</span>
+          </div>
+          <ul class="outcomes-list mb-24">
+            <li>MoU with L&T Construction for internship placement</li>
+            <li>ANSYS and SolidWorks licensed software for all students</li>
+            <li>Active SAE INDIA student chapter — national competition winners</li>
+            <li>Average package: ₹6.5 LPA | Highest: ₹16 LPA</li>
+          </ul>
+          <a href="admissions.html" class="btn btn-blue">Apply for Mechanical →</a>
+        </div>
+      </div>
+
+      <!-- CIVIL -->
+      <div class="dept-detail reveal" id="civil">
+        <div class="dept-text">
+          <div class="section-label">B.E. — 4 Years</div>
+          <h2 class="t-h2 section-title">Civil Engineering</h2>
+          <p style="color:var(--gray-500);line-height:1.8;margin-bottom:24px">
+            Build the infrastructure that sustains modern civilization. From earthquake-resistant structures to smart city planning, our civil program balances classical fundamentals with digital tools like GIS and BIM.
+          </p>
+          <div style="margin-bottom:20px">
+            <span class="dept-badge" style="background:#f0fdf4;color:#15803d">Structural Design</span>
+            <span class="dept-badge" style="background:#f0fdf4;color:#15803d">GIS & Remote Sensing</span>
+            <span class="dept-badge" style="background:#f0fdf4;color:#15803d">BIM</span>
+            <span class="dept-badge" style="background:#f0fdf4;color:#15803d">Geotechnics</span>
+            <span class="dept-badge" style="background:#f0fdf4;color:#15803d">Water Resources</span>
+          </div>
+          <ul class="outcomes-list mb-24">
+            <li>Site visits and real project exposure with TNPWD & NHAI</li>
+            <li>AutoCAD, STAAD Pro, ETABS licensed for all students</li>
+            <li>Green building certification workshop included in curriculum</li>
+            <li>Average package: ₹5.8 LPA | Highest: ₹13 LPA</li>
+          </ul>
+          <a href="admissions.html" class="btn btn-blue">Apply for Civil →</a>
+        </div>
+        <div class="dept-visual">
+          <img src="assets/campus_hero.png" alt="Civil engineering site visit" loading="lazy" />
+          <div class="dept-accent">🏗️ 60 Seats · AICTE Approved</div>
+        </div>
+      </div>
+
+      <!-- EEE -->
+      <div class="dept-detail reveal" id="eee">
+        <div class="dept-visual">
+          <img src="assets/students_lab.png" alt="Electrical lab" loading="lazy" />
+          <div class="dept-accent">⚡ 60 Seats · NBA Accredited</div>
+        </div>
+        <div class="dept-text">
+          <div class="section-label">B.E. — 4 Years</div>
+          <h2 class="t-h2 section-title">Electrical &amp; Electronics Engineering</h2>
+          <p style="color:var(--gray-500);line-height:1.8;margin-bottom:24px">
+            Power systems, smart grids, and renewable energy engineering — graduate ready to electrify a net-zero future. Our curriculum includes live power lab practicals and solar energy project work.
+          </p>
+          <div style="margin-bottom:20px">
+            <span class="dept-badge" style="background:#fef2f2;color:#b91c1c">Power Systems</span>
+            <span class="dept-badge" style="background:#fef2f2;color:#b91c1c">Renewable Energy</span>
+            <span class="dept-badge" style="background:#fef2f2;color:#b91c1c">PLC Automation</span>
+            <span class="dept-badge" style="background:#fef2f2;color:#b91c1c">Smart Grid</span>
+            <span class="dept-badge" style="background:#fef2f2;color:#b91c1c">Drives & Control</span>
+          </div>
+          <ul class="outcomes-list mb-24">
+            <li>Internship opportunities with TNEB and NTPC</li>
+            <li>1 MW Solar park on campus for live experimentation</li>
+            <li>MATLAB/Simulink environment for power system simulation</li>
+            <li>Average package: ₹6.2 LPA | Highest: ₹18 LPA</li>
+          </ul>
+          <a href="admissions.html" class="btn btn-blue">Apply for EEE →</a>
+        </div>
+      </div>
+
+      <!-- IT -->
+      <div class="dept-detail reveal" id="it">
+        <div class="dept-text">
+          <div class="section-label">B.Tech — 4 Years</div>
+          <h2 class="t-h2 section-title">Information Technology</h2>
+          <p style="color:var(--gray-500);line-height:1.8;margin-bottom:24px">
+            Where business meets technology. IT graduates understand systems at scale — data pipelines, enterprise architecture, blockchain, and DevOps. Sought after by consulting firms, startups, and tech giants alike.
+          </p>
+          <div style="margin-bottom:20px">
+            <span class="dept-badge" style="background:#ecfeff;color:#0e7490">DevOps & Cloud</span>
+            <span class="dept-badge" style="background:#ecfeff;color:#0e7490">Data Engineering</span>
+            <span class="dept-badge" style="background:#ecfeff;color:#0e7490">Blockchain</span>
+            <span class="dept-badge" style="background:#ecfeff;color:#0e7490">Enterprise Systems</span>
+            <span class="dept-badge" style="background:#ecfeff;color:#0e7490">UI/UX Design</span>
+          </div>
+          <ul class="outcomes-list mb-24">
+            <li>AWS & Azure certification tracks built into semester schedule</li>
+            <li>Capgemini co-branded capstone project in final year</li>
+            <li>Startup incubation support for final-year project teams</li>
+            <li>Average package: ₹8.5 LPA | Highest: ₹24 LPA</li>
+          </ul>
+          <a href="admissions.html" class="btn btn-blue">Apply for IT →</a>
+        </div>
+        <div class="dept-visual">
+          <img src="assets/campus_life.png" alt="Information technology lab" loading="lazy" />
+          <div class="dept-accent">🌐 60 Seats · AICTE Approved</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-section">
+    <div class="container">
+      <div class="cta-content reveal">
+        <h2 class="t-h1 c-white section-title">Found Your Department?</h2>
+        <p class="t-lead" style="color:rgba(255,255,255,0.7)">Take the next step. Our admissions team will match you to the right program.</p>
+        <div class="cta-actions">
+          <a href="admissions.html" class="btn btn-primary">Start Application</a>
+          <a href="contact.html" class="btn btn-outline">Talk to Advisor</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container"><div class="footer-grid">
+      <div class="footer-brand"><a href="index.html" class="nav-logo"><div class="nav-logo-icon">H</div><div class="nav-logo-text"><span class="nav-logo-name">Holycross</span><span class="nav-logo-sub">Engineering College</span></div></a><p>NAAC 'A' Grade | Anna University Affiliated</p><div class="footer-social"><a href="#" class="social-btn">f</a><a href="#" class="social-btn">in</a><a href="#" class="social-btn">𝕏</a></div></div>
+      <div class="footer-col"><h4>Quick Links</h4><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="admissions.html">Admissions</a></li><li><a href="placements.html">Placements</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Departments</h4><ul class="footer-links"><li><a href="#cse">CSE</a></li><li><a href="#ece">ECE</a></li><li><a href="#mech">Mechanical</a></li><li><a href="#civil">Civil</a></li><li><a href="#eee">EEE</a></li><li><a href="#it">IT</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><div class="footer-contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.64A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.15a16 16 0 006.94 6.94l1.41-1.41a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><a href="tel:+919876543210" style="color:inherit">+91 98765 43210</a></div></div>
+    </div></div>
+    <div class="footer-bottom"><div class="container"><div class="footer-bottom" style="border:none;padding:0"><span>© 2025 Holycross Engineering College.</span></div></div></div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

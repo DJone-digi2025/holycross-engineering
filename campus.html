@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campus Life | Holycross Engineering College</title>
+  <meta name="description" content="Experience campus life at Holycross Engineering College — world-class labs, sports facilities, cultural events, hostel, and a vibrant student community." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .life-feature {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center;
+      padding: 64px 0;
+      border-bottom: 1px solid var(--gray-100);
+    }
+    .life-feature:last-child { border-bottom: none; }
+    .life-feature:nth-child(even) > div:first-child { order: 2; }
+    .life-feature:nth-child(even) > div:last-child  { order: 1; }
+    .life-img { border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 16/10; }
+    .life-img img { width:100%;height:100%;object-fit:cover; }
+    .facility-points { display: flex; flex-direction: column; gap: 10px; margin-top: 24px; }
+    .facility-point { display: flex; gap: 12px; align-items: flex-start; font-size: 0.9rem; color: var(--gray-700); line-height: 1.6; }
+    .facility-point::before { content: '▶'; color: var(--gold-500); font-size: 0.6rem; margin-top: 5px; flex-shrink: 0; }
+    .event-card {
+      background: var(--white); border-radius: var(--radius-md);
+      border: 1px solid var(--gray-100); overflow: hidden;
+      box-shadow: var(--shadow-card); transition: var(--transition);
+    }
+    .event-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-card-hover); }
+    .event-card-img { aspect-ratio: 16/9; overflow: hidden; }
+    .event-card-img img { width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease; }
+    .event-card:hover .event-card-img img { transform: scale(1.06); }
+    .event-card-body { padding: 20px 22px; }
+    .event-tag { display:inline-block;background:var(--gray-100);color:var(--gray-700);font-size:0.72rem;font-weight:700;padding:3px 10px;border-radius:50px;margin-bottom:10px; }
+    @media (max-width:768px) {
+      .life-feature { grid-template-columns:1fr; gap:28px; }
+      .life-feature:nth-child(even) > div:first-child { order:0; }
+      .life-feature:nth-child(even) > div:last-child  { order:0; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="container"><div class="nav-inner">
+      <a href="index.html" class="nav-logo"><div class="nav-logo-icon">H</div><div class="nav-logo-text"><span class="nav-logo-name">Holycross</span><span class="nav-logo-sub">Engineering College</span></div></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="courses.html">Courses</a></li><li><a href="admissions.html">Admissions</a></li><li><a href="placements.html">Placements</a></li><li><a href="campus.html" class="active">Campus Life</a></li><li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta"><a href="admissions.html" class="btn btn-primary btn-sm">Apply Now</a></div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div></div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a><a href="about.html">About</a><a href="courses.html">Courses</a><a href="admissions.html">Admissions</a><a href="placements.html">Placements</a><a href="campus.html">Campus Life</a><a href="contact.html">Contact</a>
+    <a href="admissions.html" style="color:var(--gold-400);font-weight:700;margin-top:8px">→ Apply Now</a>
+  </div>
+
+  <!-- BANNER -->
+  <section class="page-banner">
+    <div class="container page-banner-content">
+      <nav class="breadcrumb"><a href="index.html">Home</a><span>/</span><span style="color:var(--gold-400)">Campus Life</span></nav>
+      <h1 class="t-h1 c-white">Life Beyond Lectures</h1>
+      <p class="t-lead" style="color:rgba(255,255,255,0.65);margin-top:12px;max-width:580px">A 25-acre campus where ambition, friendship, and growth happen all at once.</p>
+    </div>
+  </section>
+
+  <!-- PHOTO GRID -->
+  <section class="section section--light">
+    <div class="container">
+      <div class="section-header section-header--center reveal">
+        <div class="section-label">Gallery</div>
+        <h2 class="t-h1 section-title">See It to Believe It</h2>
+      </div>
+      <div class="campus-grid reveal">
+        <div class="campus-item wide">
+          <img src="assets/campus_hero.png" alt="Main campus aerial view" loading="lazy" />
+          <div class="campus-item-caption">🏛️ 25-Acre Main Campus</div>
+        </div>
+        <div class="campus-item">
+          <img src="assets/students_lab.png" alt="Students in lab" loading="lazy" />
+          <div class="campus-item-caption">🔬 AI & Robotics Lab</div>
+        </div>
+        <div class="campus-item">
+          <img src="assets/campus_life.png" alt="Cultural event" loading="lazy" />
+          <div class="campus-item-caption">🎭 Annual Cultural Fest</div>
+        </div>
+        <div class="campus-item">
+          <img src="assets/campus_hero.png" alt="Sports ground" loading="lazy" />
+          <div class="campus-item-caption">⚽ Sports Complex</div>
+        </div>
+        <div class="campus-item">
+          <img src="assets/students_lab.png" alt="Library" loading="lazy" />
+          <div class="campus-item-caption">📚 Digital Library</div>
+        </div>
+        <div class="campus-item wide">
+          <img src="assets/campus_life.png" alt="Hostel campus" loading="lazy" />
+          <div class="campus-item-caption">🏠 Modern Hostel Campus</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FACILITIES DETAIL -->
+  <section class="section">
+    <div class="container">
+
+      <div class="life-feature">
+        <div class="life-img reveal-left">
+          <img src="assets/students_lab.png" alt="Advanced laboratories" loading="lazy" />
+        </div>
+        <div class="reveal-right">
+          <div class="section-label">Infrastructure</div>
+          <h2 class="t-h2 section-title">40+ Specialized Laboratories</h2>
+          <p style="color:var(--gray-500);line-height:1.8;margin-bottom:16px">Our labs aren't showrooms — they're workspaces. Students spend 40% of their time doing hands-on work, not listening to lectures about it.</p>
+          <div class="facility-points">
+            <div class="facility-point">AI/ML Studio with GPU clusters and NVIDIA Jetson boards</div>
+            <div class="facility-point">IoT & Embedded Systems Lab with 200+ sensor kits</div>
+            <div class="facility-point">VLSI Clean Room with Cadence and Mentor Graphics suites</div>
+            <div class="facility-point">Mechanical Workshop with CNC machines and 3D printers</div>
+            <div class="facility-point">1 MW Solar Park for live EEE project work</div>
+            <div class="facility-point">Construction Materials Testing Lab — NABL certified</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="life-feature">
+        <div class="reveal-left">
+          <div class="section-label">Student Wellness</div>
+          <h2 class="t-h2 section-title">Sports & Recreation</h2>
+          <p style="color:var(--gray-500);line-height:1.8;margin-bottom:16px">Engineers need to think clearly. Our sports infrastructure ensures students have a healthy outlet for stress and genuine opportunities to compete at national level.</p>
+          <div class="facility-points">
+            <div class="facility-point">Full-size cricket & football grounds with floodlights</div>
+            <div class="facility-point">Indoor courts for basketball, volleyball, badminton</div>
+            <div class="facility-point">Olympic-size swimming pool (seasonal)</div>
+            <div class="facility-point">Fully-equipped gymnasium — open 6 AM to 9 PM</div>
+            <div class="facility-point">Chess, carrom, and esports arena</div>
+            <div class="facility-point">Inter-university sports meets hosted annually</div>
+          </div>
+        </div>
+        <div class="life-img reveal-right">
+          <img src="assets/campus_hero.png" alt="Sports facilities" loading="lazy" />
+        </div>
+      </div>
+
+      <div class="life-feature">
+        <div class="life-img reveal-left">
+          <img src="assets/campus_life.png" alt="Cultural events" loading="lazy" />
+        </div>
+        <div class="reveal-right">
+          <div class="section-label">Culture & Community</div>
+          <h2 class="t-h2 section-title">Events That Build Leaders</h2>
+          <p style="color:var(--gray-500);line-height:1.8;margin-bottom:16px">A packed annual calendar — hackathons, cultural fests, entrepreneurship summits, guest lectures from industry leaders. Life at college is fast, fun, and full.</p>
+          <div class="facility-points">
+            <div class="facility-point">CRUCIBLE — 3-day annual tech fest (5,000+ attendees)</div>
+            <div class="facility-point">AURORA — cultural festival with 40+ events</div>
+            <div class="facility-point">TEDxHolycross — annual independently organized event</div>
+            <div class="facility-point">Monthly industry guest lecture series</div>
+            <div class="facility-point">National-level hackathons with cash prizes up to ₹2 Lakh</div>
+            <div class="facility-point">25+ active technical and non-technical student clubs</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="life-feature">
+        <div class="reveal-left">
+          <div class="section-label">Accommodation</div>
+          <h2 class="t-h2 section-title">Hostel — Your Home Away from Home</h2>
+          <p style="color:var(--gray-500);line-height:1.8;margin-bottom:16px">Safe, clean, and well-connected. Separate hostel blocks for men and women with modern amenities, high-speed internet, and 24-hour security.</p>
+          <div class="facility-points">
+            <div class="facility-point">Air-cooled rooms — 2-person and 3-person options</div>
+            <div class="facility-point">Hygienic cafeteria — 3 meals + snacks daily</div>
+            <div class="facility-point">High-speed Wi-Fi — 100 Mbps dedicated bandwidth</div>
+            <div class="facility-point">24/7 security + biometric access to blocks</div>
+            <div class="facility-point">Laundry service, medical room, and counselling cell</div>
+            <div class="facility-point">₹48,000 / year inclusive of all meals</div>
+          </div>
+        </div>
+        <div class="life-img reveal-right">
+          <img src="assets/campus_hero.png" alt="Hostel campus" loading="lazy" />
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CLUBS -->
+  <section class="section section--light">
+    <div class="container">
+      <div class="section-header section-header--center reveal">
+        <div class="section-label">Student Clubs</div>
+        <h2 class="t-h1 section-title">Find Your Tribe</h2>
+        <p class="t-lead section-sub">25+ active clubs. Every interest has a home here.</p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center" class="reveal">
+        <span style="background:var(--white);border:1px solid var(--gray-200);border-radius:50px;padding:12px 22px;font-weight:600;font-size:0.9rem">🤖 Robotics Club</span>
+        <span style="background:var(--white);border:1px solid var(--gray-200);border-radius:50px;padding:12px 22px;font-weight:600;font-size:0.9rem">💡 IEEE Student Branch</span>
+        <span style="background:var(--white);border:1px solid var(--gray-200);border-radius:50px;padding:12px 22px;font-weight:600;font-size:0.9rem">🎨 Photography Club</span>
+        <span style="background:var(--white);border:1px solid var(--gray-200);border-radius:50px;padding:12px 22px;font-weight:600;font-size:0.9rem">🚀 Entrepreneurship Cell</span>
+        <span style="background:var(--white);border:1px solid var(--gray-200);border-radius:50px;padding:12px 22px;font-weight:600;font-size:0.9rem">🎭 Drama & Theatre</span>
+        <span style="background:var(--white);border:1px solid var(--gray-200);border-radius:50px;padding:12px 22px;font-weight:600;font-size:0.9rem">🏏 Sports Council</span>
+        <span style="background:var(--white);border:1px solid var(--gray-200);border-radius:50px;padding:12px 22px;font-weight:600;font-size:0.9rem">🌱 NSS Chapter</span>
+        <span style="background:var(--white);border:1px solid var(--gray-200);border-radius:50px;padding:12px 22px;font-weight:600;font-size:0.9rem">📻 Radio Club</span>
+        <span style="background:var(--white);border:1px solid var(--gray-200);border-radius:50px;padding:12px 22px;font-weight:600;font-size:0.9rem">🧩 Coding Society</span>
+        <span style="background:var(--white);border:1px solid var(--gray-200);border-radius:50px;padding:12px 22px;font-weight:600;font-size:0.9rem">♟️ Chess Club</span>
+        <span style="background:var(--white);border:1px solid var(--gray-200);border-radius:50px;padding:12px 22px;font-weight:600;font-size:0.9rem">🌍 Rotaract Club</span>
+        <span style="background:var(--white);border:1px solid var(--gray-200);border-radius:50px;padding:12px 22px;font-weight:600;font-size:0.9rem">🎵 Music Society</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-section">
+    <div class="container"><div class="cta-content reveal">
+      <h2 class="t-h1 c-white section-title">Ready to Live This Life?</h2>
+      <p class="t-lead" style="color:rgba(255,255,255,0.7)">Come visit campus — see it for yourself before applications close.</p>
+      <div class="cta-actions">
+        <a href="admissions.html" class="btn btn-primary">Apply Now</a>
+        <a href="contact.html" class="btn btn-outline">Book Campus Tour</a>
+      </div>
+    </div></div>
+  </section>
+
+  <footer>
+    <div class="container"><div class="footer-grid">
+      <div class="footer-brand"><a href="index.html" class="nav-logo"><div class="nav-logo-icon">H</div><div class="nav-logo-text"><span class="nav-logo-name">Holycross</span><span class="nav-logo-sub">Engineering College</span></div></a><p>NAAC 'A' Grade | Anna University Affiliated</p><div class="footer-social"><a href="#" class="social-btn">f</a><a href="#" class="social-btn">in</a><a href="#" class="social-btn">𝕏</a></div></div>
+      <div class="footer-col"><h4>Quick Links</h4><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="courses.html">Courses</a></li><li><a href="admissions.html">Admissions</a></li><li><a href="placements.html">Placements</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Campus Life</h4><ul class="footer-links"><li><a href="#labs">Labs</a></li><li><a href="#sports">Sports</a></li><li><a href="#events">Events</a></li><li><a href="#hostel">Hostel</a></li><li><a href="#clubs">Clubs</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><div class="footer-contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.64A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.15a16 16 0 006.94 6.94l1.41-1.41a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><a href="tel:+919876543210" style="color:inherit">+91 98765 43210</a></div></div>
+    </div></div>
+    <div class="footer-bottom"><div class="container"><div class="footer-bottom" style="border:none;padding:0"><span>© 2025 Holycross Engineering College.</span></div></div></div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
